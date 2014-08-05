@@ -246,11 +246,11 @@ public class AccountReconciler {
                         context, accountType);
                 final EmailServiceInfo info = EmailServiceUtils.getServiceInfo(context, protocol);
                 if (info != null) {
-                    if (!info.syncCalendar) {
+                    if (info !=null && !info.syncCalendar) {
                         ContentResolver.setIsSyncable(accountManagerAccount,
                                 CalendarContract.AUTHORITY, 0);
                     }
-                    if (!info.syncContacts) {
+                    if (info !=null && !info.syncContacts) {
                         ContentResolver.setIsSyncable(accountManagerAccount,
                                 ContactsContract.AUTHORITY, 0);
                     }
